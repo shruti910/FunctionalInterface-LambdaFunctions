@@ -9,7 +9,7 @@ package calculatorusinglambda;
  *
  * @author User
  */
-public class CalculatorDemo {
+ public class CalculatorDemo {
    
     @FunctionalInterface
 	interface MathOperation {
@@ -20,33 +20,25 @@ public class CalculatorDemo {
 		return mathOperation.operation(a, b);
 	}
 	
-	private void addition() {
+	public void addition() {
 		MathOperation additionOp = (number1, number2) -> number1 + number2;
 		System.out.println("50 + 10 = " + operate(50, 10, additionOp));
 	}
 
-	private void subtraction() {
+	public void subtraction() {
 		MathOperation subtractionOp = (number1, number2) -> number1 - number2;
 		System.out.println("50 - 10 = " + operate(50, 10, subtractionOp));
 	}
 
-	private void multiplication() {
+	public void multiplication() {
 		MathOperation multiplicationOp = (number1, number2) -> number1 * number2;
 		System.out.println("50 * 10 = " + operate(50, 10, multiplicationOp));
 	}
 
-	private void division() {
+	public void division() {
 		MathOperation divisionOp = (number1, number2) -> number1 / number2;
 		System.out.println("50 / 10 = " + operate(50, 10, divisionOp));
 	}
 
-	public static void main(String[] args) {
-		CalculatorDemo calculator = new CalculatorDemo();
-		calculator.addition();
-		calculator.subtraction();
-		calculator.multiplication();
-		calculator.division();
-                System.out.println(calculator.operate(3, 5, (a,b)->(a>b)?a:b));
-	}
-    
+	
 }

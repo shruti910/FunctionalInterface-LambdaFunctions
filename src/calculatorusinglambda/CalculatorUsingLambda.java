@@ -19,29 +19,29 @@ public class CalculatorUsingLambda {
     //Our interface defines a contract by which operations on two objects of type Double are made, that also returns a Double.
     //The exact operation will be left to the clients to decide.
 
-    public <T> T operate(T a, T b, BinaryOperator<T> operator) {
-		//return mathOperation.operation(a, b); //delegate to the operator
+    public Double operate(Double a, Double b, BinaryOperator<Double> operator) {
+		
                  return operator.apply(a, b);
 	}
 	
 	private void addition() {
-		BinaryOperator additionOp = (number1, number2) -> number1 + number2;
-		System.out.println("50 + 10 = " + operate(50, 10, additionOp));
+		//BinaryOperator additionOp = (number1, number2) -> number1 + number2;
+		System.out.println("50 - 10 = " + operate(50.0, 10.0, (number1, number2) -> number1 + number2));
 	}
 
 	private void subtraction() {
-		BinaryOperator subtractionOp = (number1, number2) -> number1 - number2;
-		System.out.println("50 - 10 = " + operate(50, 10, subtractionOp));
+		//BinaryOperator subtractionOp = (number1, number2) -> number1 - number2;
+		System.out.println("50 - 10 = " + operate(50.0, 10.0, (number1, number2) -> number1 - number2));
 	}
 
 	private void multiplication() {
-		BinaryOperator multiplicationOp = (number1, number2) -> number1 * number2;
-		System.out.println("50 * 10 = " + operate(50, 10, multiplicationOp));
+		//BinaryOperator multiplicationOp = (number1, number2) -> number1 * number2;
+		System.out.println("50 * 10 = " + operate(50.0, 10.0,  (number1, number2) -> number1 * number2));
 	}
 
 	private void division() {
-		BinaryOperator divisionOp = (number1, number2) -> number1 / number2;
-		System.out.println("50 / 10 = " + operate(50, 10, divisionOp));
+		//BinaryOperator divisionOp = (number1, number2) -> number1 / number2;
+		System.out.println("50 / 10 = " + operate(50.0, 10.0, (number1, number2) -> number1 / number2));
 	}
 
     public static void main(String[] args) {
@@ -52,9 +52,17 @@ public class CalculatorUsingLambda {
 		calculator.subtraction();
 		calculator.multiplication();
 		calculator.division();
-                System.out.println(calculator.operate(3,5, (a,b)-> a>b ?a:b));
+                System.out.println(calculator.operate(3.0,5.0, (a,b)-> a>b ?a:b));
                 //Clients can invoke the operate() method with any idea that comes to mind. All they need to do is come up with a valid lambda expression.
-                
-    }
+             
+		CalculatorDemo calculator1 = new CalculatorDemo();
+		calculator1.addition();
+		calculator1.subtraction();
+		calculator1.multiplication();
+		calculator1.division();
+                System.out.println(calculator1.operate(3, 5, (a,b)->(a>b)?a:b));
+	}
+      
+    
     
 }
